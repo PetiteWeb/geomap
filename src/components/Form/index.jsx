@@ -24,7 +24,7 @@ module.exports = () => {
         e.preventDefault()
         const body = {
             name: name,
-            type: type === "Другое" ? altType : type,
+            type: type === "Другое" || !types?.length ? altType : type,
             population: population,
             description: description
         }
@@ -77,7 +77,7 @@ module.exports = () => {
                 )}
                 <option>Другое</option>
             </select>
-            {type === "Другое" &&
+            {(type === "Другое" || !types?.length) &&
                 <input type="text" id="i2" required value={altType}  placeholder="Строчные латинские буквы" onChange={e => setAltType(e.target.value)}/>
             }
         </div>
