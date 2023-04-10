@@ -1,0 +1,26 @@
+nav {
+    position: absolute;
+    z-index: 10;
+    left: 0;
+    background-color: #fffc;
+    padding: 30px;
+    top: 50px;
+    height: calc(100vh - 50px);
+    box-sizing: border-box;
+}
+nav ul {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+nav li {
+    cursor: pointer;
+}
+nav li:hover {
+    color: dodgerblue;
+}
+nav li span {
+    display: block;
+    font-size: .8rem;
+    color: darkgray;
+}

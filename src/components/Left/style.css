@@ -1,0 +1,43 @@
+aside {
+    position: absolute;
+    top: 0;
+    padding: 30px;
+    z-index: 10;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    justify-content: center;
+    height: 100vh;
+    box-sizing: border-box;
+}
+aside button {
+    border: none;
+    display: flex;
+    width: 50px;
+    height: 50px;
+    outline: none;
+    background-color: #dededea0;
+    cursor: pointer;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    border-radius: 8px;
+}
+aside button:hover {
+    background-color: #fffc;
+}
+.btn-gr {
+    display: flex;
+    flex-direction: column;
+}
+.btn-gr>:first-child {
+    border-radius: 8px 8px 0 0;
+}
+.btn-gr hr {
+    border: 1px solid #fffc;
+    margin: 0;
+}
+.btn-gr>:last-child {
+    border-radius: 0 0 8px 8px;
+}

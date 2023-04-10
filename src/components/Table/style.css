@@ -1,0 +1,23 @@
+.table {
+    display: grid;
+    padding: 20px 0 0;
+    grid-template-columns: 1fr auto auto 1fr auto;
+    gap: 10px;
+}
+.table__title {
+    background-color: dodgerblue;
+    color: #fff;
+    padding: 10px;
+    font-weight: bold;
+}
+.table h3 {
+    margin: 0;
+    margin-top: 20px;
+    color: dodgerblue;
+    grid-column-end: span 5;
+}
+.table>div {
+    border-bottom: 1px solid dodgerblue;
+    display: flex;
+    align-items: center;
+}

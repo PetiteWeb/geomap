@@ -1,0 +1,14 @@
+header {
+    box-sizing: border-box;
+    position: absolute;
+    z-index: 12;
+    background-color: #dededea0;
+    top: 0;
+    width: 100%;
+    padding: 0 30px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    justify-content: space-between;
+}

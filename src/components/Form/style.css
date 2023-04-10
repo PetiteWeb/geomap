@@ -1,0 +1,59 @@
+form {
+    display: grid;
+    grid-template-columns: 30% 1fr;
+    gap: 30px;
+    padding: 30px 0;
+}
+.form__row {
+    display: grid;
+    gap: 8px;
+}
+.form__row.big {
+    grid-column-start: 2;
+    grid-row-start: 1;
+    grid-row-end: span 5;
+    grid-template-rows: auto 1fr;
+}
+.form__row input,
+.form__row select,
+.form__row textarea,
+.form__row button {
+    border: none;
+    outline: none;
+    padding: 6px 12px;
+    box-sizing: border-box;
+    font-size: 1rem;
+}
+.form__row label {
+    cursor: pointer;
+    color: #777;
+}
+.form__row label span {
+    color: crimson;
+}
+.form__row input:focus,
+.form__row select:focus,
+.form__row textarea:focus,
+.form__row button:focus {
+    box-shadow: 0 0 5px 0 dodgerblue;
+}
+.form__row input,
+.form__row select,
+.form__row textarea:not(.coordinates),
+.form__row button {
+    height: 30px;
+    font-family: inherit;
+}
+.form__row button {
+    background-color: dodgerblue;
+    color: #fffc;
+    font-weight: bold;
+    cursor: pointer;
+}
+.form__row button:hover {
+    color: #fff;
+}
+.form__row.submit {
+    grid-column-start: 2;
+    justify-self: flex-end;
+}
