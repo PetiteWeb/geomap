@@ -9,7 +9,7 @@
   "scripts": {
     "start": "node index.js",
     "dev": "webpack serve --mode=development",
-    "build": "NODE_OPTIONS=--max-old-space-size=10000 webpack --mode=production"
+    "build": "NODE_OPTIONS=--max-old-space-size=20000 webpack --mode=production"
   },
   "dependencies": {
     "@mapbox/mapbox-gl-language": "^1.0.1",
