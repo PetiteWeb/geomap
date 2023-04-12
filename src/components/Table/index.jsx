@@ -1,11 +1,27 @@
 const React = require("react");
 const {useState, useContext} = require("react");
+const {useNavigate} = require("react-router-dom")
 const {Trash, Gear} = require("react-bootstrap-icons")
 const Ctx = require("../../Ctx")
 require("./style.css");
 
 module.exports = () => {
-    const {mapData} = useContext(Ctx);
+    const {mapData, setTypes, path} = useContext(Ctx);
+    const navigate = useNavigate();
+    const delHandler = (id, name) => {
+        let agree = confirm(`Вы точно хотите удалить из БД информацию о ${name}?`);
+        if (agree) {
+            fetch(`${path}api/divisions/delete/${id}`, {
+                method: "delete"
+            })
+                .then(res => {
+                    if (res.ok) {
+                        setTypes(null);
+                        navigate("/")
+                    }
+                })
+        }
+    }
     return <div className="table">
         <div className="table__title">Название</div>
         <div className="table__title">Численность населения</div>
@@ -19,7 +35,7 @@ module.exports = () => {
                 <div>{row.population}</div>
                 <div>{row.timezone}</div>
                 <div>{row.description}</div>
-                <div><Trash/></div>
+                <div style={{justifyContent: "center", cursor: "pointer"}} onClick={e => delHandler(row._id, row.name)}><Trash/></div>
             </React.Fragment>)}
         </React.Fragment>)}
     </div>

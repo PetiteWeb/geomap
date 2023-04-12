@@ -1,3 +1,7 @@
+:root {
+    --color-light: #E35656;
+    --color-dark: #9D0000;
+}
 body {
     margin: 0;
     font-family: sans-serif;
@@ -30,7 +34,7 @@ a {
 }
 
 .admin {
-    background: dodgerblue;
+    background: silver;
     height: 100vh;
     display: grid;
     grid-template-columns: auto 1fr;
@@ -39,9 +43,12 @@ a {
 .admin__header {
     position: static;
     grid-column-end: span 2;
+    justify-content: center;
 }
 .admin__nav {
     position: static;
+    padding-top: 30px;
+    height: auto;
 }
 .admin__container {
     margin: 30px;

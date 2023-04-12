@@ -8,16 +8,17 @@ const Admin = require("./pages/Admin.jsx");
 const setSources = require("./functions/setSources");
 
 module.exports = () => {
-    // const path = "http://localhost:3000/";
-    const path = "/";
+    const path = "http://localhost:3000/";
+    // const path = "/";
     const [map, setMap] = useState(null);
     const [div, setDiv] = useState(null);
     const [types, setTypes] = useState(null);
     const [mapData, setMapData] = useState({});
     const [dataChange, setDataChange] = useState(false);
     const [round, setRound] = useState(true);
-    const [src, setSrc] = useState({})
-    const [srcUpd, setSrcUpd] = useState(false)
+    const [src, setSrc] = useState({});
+    const [srcUpd, setSrcUpd] = useState(false);
+    const [menuActive, setMenuActive] = useState(false);
     useEffect(() => {
         if (!types) {
             fetch(`${path}api/types`)
@@ -98,22 +99,24 @@ module.exports = () => {
     }, [srcUpd, map])
     return <>
         <Ctx.Provider value={{
-            path: path,
-            map: map,
-            setMap: setMap,
+            path,
+            map,
+            setMap,
             divisions: div,
             setDivisions: setDiv,
-            types: types,
-            setTypes: setTypes,
-            mapData: mapData,
-            setMapData: setMapData,
-            dataChange: dataChange,
-            setDataChange: setDataChange,
-            round: round,
-            setRound: setRound,
-            src: src,
-            srcUpd: srcUpd,
-            setSrcUpd: setSrcUpd
+            types,
+            setTypes,
+            mapData,
+            setMapData,
+            dataChange,
+            setDataChange,
+            round,
+            setRound,
+            src,
+            srcUpd,
+            setSrcUpd,
+            menuActive,
+            setMenuActive
         }}>
             <Routes>
                 <Route path="/" element={<Home/>}/>

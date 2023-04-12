@@ -4,7 +4,7 @@ const Ctx = require("../../Ctx");
 const setLayer = require("../../functions/setLayer");
 require("./style.css");
 module.exports = () => {
-    const {map, mapData, updMapData} = useContext(Ctx);
+    const {map, mapData, updMapData, menuActive} = useContext(Ctx);
     const [active, setActive] = useState("");
     // const [tags, setTags] = useState("")
     const tags = [
@@ -25,9 +25,9 @@ module.exports = () => {
             })
             if (map.getSource(active) && !map.getLayer(active)) {
                 setLayer(true, map, active, "fill", {
-                    "fill-color": "transparent",
-                    "fill-opacity": 1,
-                    "fill-outline-color": "#000"
+                    "fill-color": "#E35656",
+                    "fill-opacity": .2,
+                    "fill-outline-color": "#E35656"
                 });
             }
         }
@@ -75,9 +75,9 @@ module.exports = () => {
         let name = e.currentTarget.dataset.name;
         setActive(name);
     }
-    return <nav>
+    return <nav className={menuActive ? "menu active" : "menu"}>
         <ul>
-            {tags.map(el => mapData[el.name] && <li key={el.name} style={{color: active === el.name ? "dodgerblue" : "inherit"}} onClick={handle} data-name={el.name}>
+            {tags.map(el => mapData[el.name] && <li key={el.name} style={{color: active === el.name ? "var(--color-dark)" : "inherit"}} onClick={handle} data-name={el.name}>
                 {el.description}
                 {el.test && <span>В разработке</span>}
             </li>)}

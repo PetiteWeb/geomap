@@ -29,13 +29,13 @@ module.exports = {
                 use: ["style-loader", "css-loader"]
             },
             {
-                test: /\.(png|jpg|gif|woff(2)?|eot|ttf|otf)$/,
+                test: /\.(png|jpg|gif|svg|woff(2)?|eot|ttf|otf)$/,
                 type: "asset/resource"
             },
-            {
-                test: /\.svg$/,
-                use: ["@svgr/webpack", "url-loader"],
-            },
+            // {
+            //     test: /\.svg$/,
+            //     use: ["@svgr/webpack", "url-loader"],
+            // },
         ]
     },
     resolve: {

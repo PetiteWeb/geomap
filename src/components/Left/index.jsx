@@ -19,7 +19,7 @@ module.exports = () => {
         console.log("ddd");
         setRound(!round)
         setLayer(!round, map, "country", "line", {
-            "line-color": "dodgerblue",
+            "line-color": "#9D0000",
             "line-opacity": 1,
             "line-width": 2
         });
@@ -42,7 +42,7 @@ module.exports = () => {
                 setRound(round)
                 if (round && map.getSource("country") && !map.getLayer("country")) {
                     setLayer(round, map, "country", "line", {
-                        "line-color": "dodgerblue",
+                        "line-color": "#9D0000",
                         "line-opacity": 1,
                         "line-width": 2
                     })
@@ -52,10 +52,10 @@ module.exports = () => {
     }, [map])
     return <aside>
         <button title="Показать физическую карту" onClick={() => setMapActive(!mapActive)}>
-            <GlobeAmericas style={{color: mapActive ? "dodgerblue" : "black"}}  />
+            <GlobeAmericas style={{color: mapActive ? "var(--color-dark)" : "black"}}  />
         </button>
         {mapData.country && <button title="Показать границы" onClick={handler}>
-            <PinMap style={{color: round ? "dodgerblue" : "black"}} />
+            <PinMap style={{color: round ? "var(--color-dark)" : "black"}} />
         </button>}
         <div className="btn-gr">
             <button onClick={zoomPlus}><Plus/></button>

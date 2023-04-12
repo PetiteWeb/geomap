@@ -2,10 +2,11 @@ nav {
     position: absolute;
     z-index: 10;
     left: 0;
-    background-color: #fffc;
+    background-color: #fff;
     padding: 30px;
+    padding-top: 80px;
     top: 50px;
-    height: calc(100vh - 50px);
+    height: 100vh;
     box-sizing: border-box;
 }
 nav ul {
@@ -17,10 +18,18 @@ nav li {
     cursor: pointer;
 }
 nav li:hover {
-    color: dodgerblue;
+    color: var(--color-light);
 }
 nav li span {
     display: block;
     font-size: .8rem;
     color: darkgray;
 }
+.menu {
+    transform: translate(-100%, 0);
+    transition: transform 300ms linear;
+}
+.menu.active {
+    transform: translate(0, 0);
+}
+

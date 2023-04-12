@@ -12,3 +12,11 @@ header {
     gap: 30px;
     justify-content: space-between;
 }
+.header-item {
+    font-size: 1.5rem;
+    cursor: pointer;
+    display: flex;align-items: center;
+}
+.header-item:hover {
+    color: var(--color-light)
+}

@@ -35,7 +35,7 @@ form {
 .form__row select:focus,
 .form__row textarea:focus,
 .form__row button:focus {
-    box-shadow: 0 0 5px 0 dodgerblue;
+    box-shadow: 0 0 5px 0 var(--color-light);
 }
 .form__row input,
 .form__row select,
@@ -45,7 +45,7 @@ form {
     font-family: inherit;
 }
 .form__row button {
-    background-color: dodgerblue;
+    background-color: var(--color-dark);
     color: #fffc;
     font-weight: bold;
     cursor: pointer;

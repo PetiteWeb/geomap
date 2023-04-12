@@ -1,0 +1,17 @@
+.logo {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+.logo-img {
+    height: 30px;
+    width: 30px;
+    background-image: url("./logo.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: left center;
+}
+.logo-txt {
+    font-size: 20px;
+    color: var(--color-dark);
+}

@@ -5,7 +5,7 @@
     gap: 10px;
 }
 .table__title {
-    background-color: dodgerblue;
+    background-color: var(--color-light);
     color: #fff;
     padding: 10px;
     font-weight: bold;
@@ -13,11 +13,11 @@
 .table h3 {
     margin: 0;
     margin-top: 20px;
-    color: dodgerblue;
+    color: var(--color-light);
     grid-column-end: span 5;
 }
 .table>div {
-    border-bottom: 1px solid dodgerblue;
+    border-bottom: 1px solid var(--color-light);
     display: flex;
     align-items: center;
 }
