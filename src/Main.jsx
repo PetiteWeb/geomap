@@ -8,8 +8,8 @@ const Admin = require("./pages/Admin.jsx");
 const setSources = require("./functions/setSources");
 
 module.exports = () => {
-    const path = "http://localhost:3000/";
-    // const path = "/";
+    // const path = "http://localhost:3000/";
+    const path = "/";
     const [map, setMap] = useState(null);
     const [div, setDiv] = useState(null);
     const [types, setTypes] = useState(null);
