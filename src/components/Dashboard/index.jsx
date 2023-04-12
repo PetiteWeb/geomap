@@ -9,7 +9,10 @@ module.exports = () => {
     // const [tags, setTags] = useState("")
     const tags = [
         {name: "federal_district", description: "Федеральные округа"},
+        {name: "subject", description: "Субъекты РФ"},
         {name: "timezone", description: "Часовые пояса"},
+        {name: "climate_zones", description: "Климатические зоны"},
+        {name: "city", description: "Города"}
         // {name: "m2", description: "Субъекты РФ"},
         // {name: "m3", description: "Часовые пояса", test: true},
         // {name: "m4", description: "Население"},
