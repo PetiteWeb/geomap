@@ -8,21 +8,9 @@ module.exports = (active, map, source, type, paint) => {
                 "id": source,
                 "type": type,
                 "source": source,
-                "paint": source === "country" ? paint : {...paint, "fill-color": `rgb(${getRand()},${getRand()},${getRand()})`},
+                "paint": paint,
                 'filter': ['==', '$type', 'Polygon']
             });
-            if (source !== "country") {
-                map.addLayer({
-                    "id": source + "-lbl",
-                    "type": "symbol",
-                    "source": source,
-                    'filter': ['==', '$type', 'Point'],
-                    "layout": {
-                        'text-field': "{name}",
-                        'text-font': ['Open Sans Semibold', 'Arial Unicode MS Bold']
-                    }
-                });
-            }
             if (source !== "country" && !map.getLayer(`${source}-hl`)) {
                 map.addLayer(
                     {
@@ -30,8 +18,8 @@ module.exports = (active, map, source, type, paint) => {
                         'type': 'fill',
                         'source': source,
                         'paint': {
-                            'fill-color': '#cb62cc',
-                            'fill-opacity': 0.75
+                            'fill-color': '#E35656',
+                            'fill-opacity': 0.5
                         },
                         'filter': ['in', 'name', '']
                     }
@@ -53,6 +41,18 @@ module.exports = (active, map, source, type, paint) => {
                         padding: {top: 0, bottom: 0, left: 0, right: 0}
                     });
                 });
+                if (source !== "country") {
+                    map.addLayer({
+                        "id": source + "-lbl",
+                        "type": "symbol",
+                        "source": source,
+                        'filter': ['==', '$type', 'Point'],
+                        "layout": {
+                            'text-field': "{name}",
+                            'text-font': ['Open Sans Semibold', 'Arial Unicode MS Bold']
+                        }
+                    });
+                }
                 map.on('mouseenter', source, () => {
                     map.getCanvas().style.cursor = 'pointer';
                 });

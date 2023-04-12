@@ -11,7 +11,7 @@ module.exports = () => {
         {name: "federal_district", description: "Федеральные округа"},
         {name: "subject", description: "Субъекты РФ"},
         {name: "timezone", description: "Часовые пояса"},
-        {name: "climate_zones", description: "Климатические зоны"},
+        {name: "climate_zone", description: "Климатические зоны"},
         {name: "city", description: "Города"}
         // {name: "m2", description: "Субъекты РФ"},
         // {name: "m3", description: "Часовые пояса", test: true},
@@ -28,8 +28,8 @@ module.exports = () => {
             })
             if (map.getSource(active) && !map.getLayer(active)) {
                 setLayer(true, map, active, "fill", {
-                    "fill-color": "#E35656",
-                    "fill-opacity": .2,
+                    "fill-color": "transparent",
+                    "fill-opacity": 1,
                     "fill-outline-color": "#E35656"
                 });
             }
