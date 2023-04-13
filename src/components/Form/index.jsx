@@ -14,7 +14,7 @@ module.exports = () => {
     const clearForm = () => {
         setName("");
         setCoordinates("");
-        setType(types?.[0] || "");
+        setType(types?.[types.length-1] || "");
         setAltType("")
         setTimezone("-");
         setPopulation("");
@@ -51,8 +51,9 @@ module.exports = () => {
                                 prev[body.type] = [];
                                 setTypes(prev => [...prev, body.type])
                             }
-                            prev[body.type].push(body);
-                            return prev;
+                            let newData = {...prev}
+                            newData[body.type].push(body);
+                            return newData;
                         });
                         setDataChange(true)
                     } else {
@@ -96,7 +97,6 @@ module.exports = () => {
                 <option>UTC10</option>
                 <option>UTC11</option>
                 <option>UTC12</option>
-                <option>UTC13</option>
             </select>
         </div>
         <div className="form__row">

@@ -8,8 +8,8 @@ const Admin = require("./pages/Admin.jsx");
 const setSources = require("./functions/setSources");
 
 module.exports = () => {
-    // const path = "http://localhost:3000/";
-    const path = "/";
+    const path = "http://localhost:3000/";
+    // const path = "/";
     const [map, setMap] = useState(null);
     const [div, setDiv] = useState(null);
     const [types, setTypes] = useState(null);
@@ -26,6 +26,24 @@ module.exports = () => {
                 .then(tp => {
                     setTypes(tp);
                     tp.forEach(d => {
+                        fetch(`${path}api/divisions/show/${d}`)
+                            .then(res => res.json())
+                            .then(data => {
+                                setMapData(prev => {
+                                    prev[d] = [...data];
+                                    return prev;
+                                });
+                                setDataChange(true);
+                            })
+                    })
+                })
+        } else {
+            fetch(`${path}api/types`)
+                .then(res => res.json())
+                .then(tp => {
+                    let upd = tp.filter(t => !types.includes(t));
+                    setTypes(tp);
+                    upd.forEach(d => {
                         fetch(`${path}api/divisions/show/${d}`)
                             .then(res => res.json())
                             .then(data => {
@@ -70,7 +88,7 @@ module.exports = () => {
                                     id: "lbl-" + d._id,
                                 }
                             })
-                            if (d.name === "Дальневосточный федеральный округ" || d.name === "MSK+11") {
+                            if (d.name === "Дальневосточный федеральный округ" || d.name === "MSK+9") {
                                 data[data.length - 1].geometry.coordinates = [165.7, 66.1]
                             }
                             return data;

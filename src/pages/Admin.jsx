@@ -16,6 +16,7 @@ module.exports = () => {
                 <ul>
                     {tabs.map((t) => <li key={t} className={actTab === t ? "active" : ""} onClick={() => setActTab(t)}>{t}</li>)}
                 </ul>
+                <div className="nav-logo">2023</div>
             </nav>
             <div className="admin__container">
                 {actTab === tabs[0] &&

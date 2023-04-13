@@ -37,7 +37,7 @@ router.patch("/divisions/update/:id", async (q,s) => {
 router.delete("/divisions/delete/:id", async (q,s) => {
     try {
         let div = await D.findOneAndDelete({"_id": q.params.id});
-        if (cat) {
+        if (div) {
             s.status(200).json({"message": `ok`});
         } else {
             s.status(400).json({"message": `данных с id «${q.params.id}» не существует`});

@@ -2,6 +2,7 @@
     display: flex;
     gap: 10px;
     align-items: center;
+    flex: 1;
 }
 .logo-img {
     height: 30px;
@@ -14,4 +15,6 @@
 .logo-txt {
     font-size: 20px;
     color: var(--color-dark);
+    font-family: 'Playfair Display', serif;
+    font-weight: 500;
 }

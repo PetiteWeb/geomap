@@ -41,7 +41,7 @@ module.exports = (active, map, source, type, paint) => {
                         padding: {top: 0, bottom: 0, left: 0, right: 0}
                     });
                 });
-                if (source !== "country") {
+                if (source !== "country" && !map.getLayer(source + "-lbl")) {
                     map.addLayer({
                         "id": source + "-lbl",
                         "type": "symbol",
@@ -63,14 +63,16 @@ module.exports = (active, map, source, type, paint) => {
             }
         }
     } else {
-        if (map.getLayer(source)) {
-            map.removeLayer(source);
-        }
-        if (map.getLayer(source+"-lbl")) {
-            map.removeLayer(source+"-lbl");
-        }
-        if (map.getLayer(`${source}-hl`)) {
-            map.removeLayer(`${source}-hl`)
+        if (map.getSource(source)) {
+            if (map.getLayer(source)) {
+                map.removeLayer(source);
+            }
+            if (map.getLayer(source + "-lbl")) {
+                map.removeLayer(source + "-lbl");
+            }
+            if (map.getLayer(`${source}-hl`)) {
+                map.removeLayer(`${source}-hl`)
+            }
         }
     }
 }

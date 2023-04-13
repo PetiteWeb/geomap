@@ -6,9 +6,9 @@ const Ctx = require("../../Ctx")
 require("./style.css");
 
 module.exports = () => {
-    const {mapData, setTypes, path} = useContext(Ctx);
+    const {mapData, setMapData, setTypes, path, setDataChange} = useContext(Ctx);
     const navigate = useNavigate();
-    const delHandler = (id, name) => {
+    const delHandler = (id, name, type) => {
         let agree = confirm(`Вы точно хотите удалить из БД информацию о ${name}?`);
         if (agree) {
             fetch(`${path}api/divisions/delete/${id}`, {
@@ -16,8 +16,13 @@ module.exports = () => {
             })
                 .then(res => {
                     if (res.ok) {
-                        setTypes(null);
-                        navigate("/")
+                        setTypes(prev => prev.filter(t => t !== type));
+                        setMapData(prev => {
+                            let newData = {...prev};
+                            delete newData[type];
+                            return newData;
+                        });
+                        setDataChange(true);
                     }
                 })
         }
@@ -35,7 +40,7 @@ module.exports = () => {
                 <div>{row.population}</div>
                 <div>{row.timezone}</div>
                 <div>{row.description}</div>
-                <div style={{justifyContent: "center", cursor: "pointer"}} onClick={e => delHandler(row._id, row.name)}><Trash/></div>
+                <div style={{justifyContent: "center", cursor: "pointer"}} onClick={e => delHandler(row._id, row.name, row.type)}><Trash/></div>
             </React.Fragment>)}
         </React.Fragment>)}
     </div>

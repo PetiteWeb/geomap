@@ -11,7 +11,7 @@ module.exports = () => {
         {name: "federal_district", description: "Федеральные округа"},
         {name: "subject", description: "Субъекты РФ"},
         {name: "timezone", description: "Часовые пояса"},
-        {name: "climate_zone", description: "Климатические зоны"},
+        {name: "climate_zone", description: "Климатические пояса"},
         {name: "city", description: "Города"}
         // {name: "m2", description: "Субъекты РФ"},
         // {name: "m3", description: "Часовые пояса", test: true},
@@ -85,5 +85,6 @@ module.exports = () => {
                 {el.test && <span>В разработке</span>}
             </li>)}
         </ul>
+        <div className="nav-logo">2023</div>
     </nav>
 }
